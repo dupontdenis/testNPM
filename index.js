@@ -2,7 +2,7 @@ const fetch = require('node-fetch')
 const _ = require('lodash');
 const path = require('path');
 const fs = require('fs');
-const { setMaxListeners } = require('process');
+
 
 async function main() {
   const response = await fetch("https://dev.to/api/articles?state=rising");
@@ -14,4 +14,4 @@ async function main() {
   fs.writeFileSync(path.join(__dirname, `${filePrefix}-feed.json`), JSON.stringify(top5, null, 2));
 }
 
-setMaxListeners();
+main()
