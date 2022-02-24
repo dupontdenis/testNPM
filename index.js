@@ -7,7 +7,7 @@ const fs = require('fs');
 async function main() {
   const response = await fetch("https://dev.to/api/articles?state=rising");
   const json = await response.json();
-  const sorted = _.sortBy(json, ["public_reactions_count"], ['desc']);
+  const sorted = _.orderBy(json, ["public_reactions_count"], ['desc']);
   const top5 = _.take(sorted, 5);
 
   const filePrefix = new Date().toISOString().split('T')[0];
