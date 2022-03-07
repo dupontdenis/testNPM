@@ -9,7 +9,7 @@ async function run() {
   const top5 = _.take(sorted, 5);
  
   const filePrefix = new Date().toISOString().split('T')[0];
-  fs.writeFile(path.join(__dirname, `${filePrefix}-feed.json`), JSON.stringify(top5, null, 1));
+  await fs.writeFile(path.join(__dirname, `${filePrefix}-feed.json`), JSON.stringify(top5, null, 1));
 }
  
 run();
