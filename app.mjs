@@ -10,7 +10,7 @@ const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 async function run() {
   const response = await fetch("https://dev.to/api/articles?state=rising");
   const json = await response.json();
-  const sorted = _.orderBy(json, ["public_reactions_count"], ["desc"]);
+  const sorted = _.sortBy(json, ["public_reactions_count"], ["desc"]);
   const top5 = _.take(sorted, 3);
 
   const filePrefix = new Date().toISOString().split("T")[0];
